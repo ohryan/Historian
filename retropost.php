@@ -49,7 +49,7 @@ function retroposts_dashboard_widget_display() {
 		<?php endwhile; ?>
 		</ul>
 	<?php else: ?>
-		<p>You haven't written any posts in this week in the past.</p>
+		<p>You haven't written any posts during this week in the past.</p>
 	<?php endif; 
 	
 }
