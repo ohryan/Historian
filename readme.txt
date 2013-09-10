@@ -3,7 +3,7 @@ Contributors: ohryan
 Tags: dashboard widget, post history
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 0.1
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,15 @@ Feature requests and ideas welcome: ryan@ohryan.ca
 2. Activate it. 
 3. Check your dashboard.
 
+== Screenshots ==
+
+1. The dashboard widget.
+
 == Changelog ==
+
+= 0.1.1 = 
+* Improved handling of multiple posts in a single day.
+* Added a screenshot.
 
 = 0.1 =
 * Initial version. Nothing to change. 

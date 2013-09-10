@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: RetroPosts
-Plugin URI: http://soon
+Plugin URI: https://github.com/ohryan/RetroPosts
 Description: Displays posts from the past!
-Version: 0.1
+Version: 0.1.1
 Author: Ryan Neudorf
 Author URI: http://ohryan.ca/
-License: GPL2
+License: GPLv2 or later
 */
 
 function retroposts_add_dashboard_widgets() {
@@ -40,10 +40,17 @@ function retroposts_dashboard_widget_display() {
 				<?php
 				if ( $loop_year != get_the_date( 'Y' ) ) {
 					$loop_year = get_the_date('Y');
+					$day_of_week = '';
 					echo "<h2>$loop_year</h2>";
 				}
+
+				if ( $day_of_week != get_the_date('l') ) {
+					$day_of_week = get_the_date( 'l' );
+					echo "<h4>$day_of_week</h4>";
+				}
 				?>
-			<h4><?php the_date('l') ?>: <a href="<?php echo the_permalink() ?>"><?php echo the_title(); ?></a></h4></li>
+
+			<h4><a href="<?php echo the_permalink() ?>"><?php echo the_title(); ?></a></h4></li>
 
 
 		<?php endwhile; ?>
