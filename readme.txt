@@ -1,9 +1,10 @@
 === RetroPosts ===
 Contributors: ohryan
 Tags: dashboard widget, post history
+Requires at least: 3.0
 Tested up to: 3.6
 Stable tag: 0.1
-License GPLv2
+License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 RetroPosts creates a dashboard widget that displays past blog posts.
