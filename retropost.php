@@ -21,7 +21,10 @@ add_action( 'wp_dashboard_setup', 'retroposts_add_dashboard_widgets' );
 
 
 function retroposts_dashboard_widget_display() {
-	$week = date('W') - 1;
+	$week = date('W');
+	$loop_year = null;
+
+
 
 	add_filter( 'posts_where', 'retroposts_filter_year' );
 	add_filter( 'posts_orderby', 'retroposts_filter_order' );

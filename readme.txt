@@ -3,7 +3,7 @@ Contributors: ohryan
 Tags: dashboard widget, post history
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,9 @@ Feature requests and ideas welcome: ryan@ohryan.ca
 1. The dashboard widget.
 
 == Changelog ==
+
+= 0.1.2 =
+* Fixed a date bug.(Turns out the ISO-8601 dates returned by PHP's date() do not work like I thought they did.)
 
 = 0.1.1 = 
 * Improved handling of multiple posts in a single day.
