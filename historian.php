@@ -8,10 +8,10 @@ Author: Ryan Neudorf
 Author URI: http://ohryan.ca/
 License: GPLv2 or later
 */
-namespace RP;
+namespace Ohryan\Historian;
 
-require_once 'classes/Historian.php';
-require_once 'classes/HistorianWidget.php';
+require_once 'classes/Historian-class.php';
+require_once 'classes/HistorianWidget-class.php';
 
 function retroposts_add_dashboard_widgets() {
 	wp_add_dashboard_widget(

@@ -1,6 +1,5 @@
 <?php
-namespace RP;
-use \RP\Historian;
+namespace Ohryan\Historian;
 use \WP_Query;
 
 class HistorianWidget extends \WP_Widget {

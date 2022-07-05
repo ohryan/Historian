@@ -1,5 +1,5 @@
 <?php
-namespace RP;
+namespace Ohryan\Historian;
 use \WP_Query;
 
 class Historian {
