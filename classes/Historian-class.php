@@ -3,65 +3,67 @@ namespace Ohryan\Historian;
 use \WP_Query;
 
 class Historian {
-	
-	
-	var $query_args;
 
-	function __construct() {
-		$this->query_args = array(
-								'posts_per_page'	=>	-1,
-								'post_status'		=>	'publish',
-								'w'					=> date('W'),
-								'date_query'		=>	array(
-														'before'	=>	date( 'Y-m-d 00:00' ),
 
-													)
-							);
+	/**
+	 * Get all posts by week.
+	 *
+	 * @return WP_Query
+	 */
+	private function get_posts_for_this_week_of_the_year() {
+		return new WP_Query(array(
+			'posts_per_page'	=>	25, // @todo perhaps make this configurable
+			'post_status'		=>	'publish',
+			'w'					=> date('W'),
+			'date_query'		=>	array( 'before'	=>	date( 'Y-m-d 00:00' ),)
+		));
+
 	}
 
 
-	function displayDashboardWidget() {
-		$q = new WP_Query( $this->query_args );
+	/**
+	 * Group posts by year.
+	 *
+	 * @param WP_Query $posts
+	 *
+	 * @return array
+	 */
+	private function group_posts_by_year($posts) {
 
-		if ( $q->have_posts() ) {
-			while ( $q->have_posts() ){ 
-				$q->the_post();
-				if ( $loop_year != get_the_date( 'Y' ) ) {
-					$loop_year = get_the_date('Y');
-					$day_of_week = '';
-					echo "<h2>$loop_year</h2>";
-				}
+		$output = array();
 
-				if ( $day_of_week != get_the_date('l') ) {
-					
-					echo '<h4>'.get_the_date( 'l' ).'</h4>';
-				}
-				echo '<h4><a href="'.get_the_permalink().'">'.get_the_title().'</a></h4></li>';
+		if ( $posts->have_posts() ) {
+			while ( $posts->have_posts() ) {
+				$posts->the_post();
+
+				$post_year            = get_the_date('Y');
+				$output[$post_year][] = array(
+					'permalink' => get_the_permalink(),
+					'title'     => get_the_title(),
+				);
 			}
-		}			
+		}
+
+		return $output;
 	}
 
-	function displaySidebarWidgetList() {
-		$q = new WP_Query( $this->query_args );
+	/**
+	 * Output the widget.
+	 *
+	 * @return void
+	 */
+	public function display_legacy_widget() {
 
-		if ( $q->have_posts() ) {
-			$first = true; 
+		$posts         = $this->get_posts_for_this_week_of_the_year();
+		$posts_by_year = $this->group_posts_by_year( $posts );
 
-			while ( $q->have_posts() ){ 
-				$q->the_post();
-				
-				if ( $loop_year != get_the_date( 'Y' ) ) {
-					$loop_year = get_the_date('Y');
-				
-					if ( !$first ) echo '</ul>';
-					echo "<h3>$loop_year</h3>";
-					echo '<ul>';
-
-					$first = false;
-				}
-
-				echo '<li><a href="'.get_the_permalink().'">'.get_the_title().'</a></li>';
-			}
-		}	
+		foreach ( $posts_by_year as $year => $posts ) {
+			echo "<h4>$year</h4>";
+			echo '<ul>';
+			array_walk($posts, function($post) {
+				echo "<li><a href='{$post['permalink']}'>{$post['title']}</a></li>";
+			});
+			echo '</ul>';
+		}
 	}
 }

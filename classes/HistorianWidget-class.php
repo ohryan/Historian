@@ -5,7 +5,7 @@ use \WP_Query;
 class HistorianWidget extends \WP_Widget {
 
 	function __construct() {
-		parent::WP_Widget('Historian_Widget', 
+		parent::__construct('Historian_Widget',
 						$name = __('Historian', 'rp_historian_plugin' ), 
 						array( 'description' => __('Posts from this week in your site\'s history.', 'wp_historian_plugin' )));
 	}	
@@ -38,7 +38,7 @@ class HistorianWidget extends \WP_Widget {
 
 	   	if ( $title )       echo $before_title . $title . $after_title;
 
-	   	echo $h->displaySidebarWidgetList();
+	   	$h->display_legacy_widget();
 
 	   	echo '</div>'.$after_widget;
 	}
