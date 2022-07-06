@@ -6,6 +6,7 @@ Description: Historian surfaces old blog posts on your dashboard and as a sideba
 Version: 2.0
 Author: Ryan Neudorf
 Author URI: http://ohryan.ca/
+Text Domain: ohryan-historian
 License: GPLv2 or later
 */
 namespace Ohryan\Historian;
@@ -29,4 +30,19 @@ function historian_dashboard_widget_display() {
 }
 
 add_action('widgets_init', function(){ return register_widget(__NAMESPACE__."\\HistorianWidget"); });
-?>
+
+function historian_block_render_callback() {
+	$h = new Historian();
+	return $h->get_widget_content();
+}
+
+function historian_block_init() {
+    register_block_type(
+		__DIR__ . '/build',
+	    array(
+		    'render_callback' => __NAMESPACE__ . "\\historian_block_render_callback"
+	    )
+    );
+}
+
+add_action( 'init', __NAMESPACE__ . "\\historian_block_init" );

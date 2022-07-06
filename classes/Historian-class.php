@@ -53,17 +53,23 @@ class Historian {
 	 * @return void
 	 */
 	public function display_legacy_widget() {
+		echo $this->get_widget_content();
+	}
 
+	public function get_widget_content(){
+		$output        = '';
 		$posts         = $this->get_posts_for_this_week_of_the_year();
 		$posts_by_year = $this->group_posts_by_year( $posts );
 
 		foreach ( $posts_by_year as $year => $posts ) {
-			echo "<h4>$year</h4>";
-			echo '<ul>';
-			array_walk($posts, function($post) {
-				echo "<li><a href='{$post['permalink']}'>{$post['title']}</a></li>";
+			$output .= "<h4>$year</h4>";
+			$output .= '<ul>';
+			array_walk($posts, function($post) use (&$output) {
+				 $output .= "<li><a href='{$post['permalink']}'>{$post['title']}</a></li>";
 			});
-			echo '</ul>';
+			$output .= '</ul>';
 		}
+
+		return $output;
 	}
 }
