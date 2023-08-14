@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Historian
+Plugin Name: Historian Block
 Plugin URI: https://github.com/ohryan/RetroPosts
-Description: Historian surfaces old blog posts on your dashboard and as a sidebar widget.
+Description: Historian Block provides a "this day in history" for your blog.
 Version: 2.0
 Author: Ryan Neudorf
 Author URI: http://ohryan.ca/
@@ -31,9 +31,8 @@ function historian_dashboard_widget_display() {
 
 add_action('widgets_init', function(){ return register_widget(__NAMESPACE__."\\HistorianWidget"); });
 
-function historian_block_render_callback() {
-	$h = new Historian();
-	return $h->get_widget_content();
+function historian_block_render_callback($attributes, $content, $block) {
+	return $content . (new Historian())->get_widget_content();
 }
 
 function historian_block_init() {

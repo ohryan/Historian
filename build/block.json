@@ -13,7 +13,9 @@
   "attributes": {
     "title": {
       "type": "string",
-      "default": "From The Archives"
+      "source": "html",
+      "selector": "h3",
+      "default": "This week in history"
     }
   },
   "textdomain": "ohryan-historian",
