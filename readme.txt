@@ -1,19 +1,18 @@
 === Historian ===
 Contributors: ohryan
-Tags: widget, dashboard widget, post history
+Tags: block, dashboard widget, post history
 Requires at least: 4.0
 Tested up to: 6.3
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-RetroPosts creates a dashboard widget that displays past blog posts.
+Historian Block aka "this week in history" for your blog.
 
 == Description == 
 
-It's easy to forget about the great blog posts you've written in the past. This plugin surfaces post from the current week in your blog's history. 
-
-Feature requests and ideas welcome: ryan.neudorf@gmail.com
+Historian Block displays a list of posts from this week in your blog's history, organized by year.
+It's easy to forget about the great blog posts you've written in the past.
 
 == Installation ==
 
@@ -26,6 +25,9 @@ Feature requests and ideas welcome: ryan.neudorf@gmail.com
 1. The dashboard widget.
 
 == Changelog ==
+
+= 2.0 =
+* Added a block to replace the old widget.
 
 = 1.0 =
 * ADDED SIDEBAR WIDGET!
