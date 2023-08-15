@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "ohryan-historian/historian-block",
+	"version": "0.1.0",
+	"title": "Historian Block",
+	"category": "widgets",
+	"icon": "calendar-alt",
+	"description": "Historian surfaces old blog posts on your dashboard and as a sidebar widget.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h3",
+			"default": "This week in history"
+		}
+	},
+	"textdomain": "ohryan-historian",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
