@@ -3,7 +3,7 @@ Contributors: ohryan
 Tags: block, dashboard widget, post history
 Requires at least: 4.0
 Tested up to: 6.3
-Stable tag: 2.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ It's easy to forget about the great blog posts you've written in the past.
 
 == Changelog ==
 
-= 2.0 =
+= 2.0.1 =
 * Added a block to replace the old widget.
 
 = 1.0 =
